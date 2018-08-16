@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_A3E145_SaglamligimModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Adresim">
+    <Key>
+      <PropertyRef Name="adres_id" />
+    </Key>
+    <Property Name="adres_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adres_telefon" Type="nvarchar" MaxLength="70" />
+    <Property Name="adres_gmail" Type="nvarchar" MaxLength="400" />
+    <Property Name="adres_facebook" Type="nvarchar(max)" />
+    <Property Name="adres_instagram" Type="nvarchar(max)" />
+    <Property Name="adres_youtube" Type="nvarchar(max)" />
+    <Property Name="adres_about_text" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Elaqe">
+    <Key>
+      <PropertyRef Name="elaqe_id" />
+    </Key>
+    <Property Name="elaqe_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="elaqe_ad" Type="nvarchar" MaxLength="100" />
+    <Property Name="elaqe_soyad" Type="nvarchar" MaxLength="100" />
+    <Property Name="elaqe_telefon" Type="nvarchar" MaxLength="60" />
+    <Property Name="elaqe_mesaji" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Endirim">
+    <Key>
+      <PropertyRef Name="endirim_id" />
+    </Key>
+    <Property Name="endirim_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="endirim_novu" Type="nvarchar" MaxLength="200" />
+    <Property Name="edirim_faiz" Type="nvarchar" MaxLength="10" />
+    <Property Name="endirim_detail" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Galereya">
+    <Key>
+      <PropertyRef Name="galery_id" />
+    </Key>
+    <Property Name="galery_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="galery_header" Type="nvarchar" MaxLength="400" />
+    <Property Name="galery_text" Type="nvarchar(max)" />
+    <Property Name="galery_image" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Karusel">
+    <Key>
+      <PropertyRef Name="karusel_id" />
+    </Key>
+    <Property Name="karusel_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="karusel_image" Type="nvarchar(max)" />
+    <Property Name="karusel_mehsul_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Kategoriya">
+    <Key>
+      <PropertyRef Name="kategorya_id" />
+    </Key>
+    <Property Name="kategorya_id" Type="int" Nullable="false" />
+    <Property Name="kategorya_adi" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Mallar">
+    <Key>
+      <PropertyRef Name="mal_id" />
+    </Key>
+    <Property Name="mal_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mal_adi" Type="nvarchar" MaxLength="200" />
+    <Property Name="mal_qiymeti" Type="nvarchar" MaxLength="20" />
+    <Property Name="mal_youtube_link" Type="nvarchar(max)" />
+    <Property Name="mal_web_link" Type="nvarchar(max)" />
+    <Property Name="mal_info" Type="nvarchar(max)" />
+    <Property Name="mal_bawliq" Type="nvarchar" MaxLength="500" />
+    <Property Name="mal_kateqoriyasi" Type="int" />
+    <Property Name="mal_resmi" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Servis">
+    <Key>
+      <PropertyRef Name="servis_id" />
+    </Key>
+    <Property Name="servis_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="servis_adi" Type="nvarchar" MaxLength="500" />
+    <Property Name="servis_content" Type="nvarchar(max)" />
+    <Property Name="servis_icon" Type="nvarchar" MaxLength="800" />
+  </EntityType>
+  <EntityType Name="Slayder">
+    <Key>
+      <PropertyRef Name="slider_id" />
+    </Key>
+    <Property Name="slider_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="slider_image" Type="nvarchar(max)" />
+    <Property Name="slider_mehsul_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Zakazim">
+    <Key>
+      <PropertyRef Name="zakazim_id" />
+    </Key>
+    <Property Name="zakazim_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="zakazim_adi_soyad" Type="nvarchar" MaxLength="250" />
+    <Property Name="zakazim_telefon" Type="nvarchar" MaxLength="80" />
+    <Property Name="zakazim_mehsul" Type="nvarchar(max)" />
+    <Property Name="zakaz_vaxti" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_Karusel_Mallar">
+    <End Role="Mallar" Type="Self.Mallar" Multiplicity="0..1" />
+    <End Role="Karusel" Type="Self.Karusel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mallar">
+        <PropertyRef Name="mal_id" />
+      </Principal>
+      <Dependent Role="Karusel">
+        <PropertyRef Name="karusel_mehsul_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mallar_Kategoriya">
+    <End Role="Kategoriya" Type="Self.Kategoriya" Multiplicity="0..1" />
+    <End Role="Mallar" Type="Self.Mallar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategoriya">
+        <PropertyRef Name="kategorya_id" />
+      </Principal>
+      <Dependent Role="Mallar">
+        <PropertyRef Name="mal_kateqoriyasi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Slayder_Mallar">
+    <End Role="Mallar" Type="Self.Mallar" Multiplicity="0..1" />
+    <End Role="Slayder" Type="Self.Slayder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mallar">
+        <PropertyRef Name="mal_id" />
+      </Principal>
+      <Dependent Role="Slayder">
+        <PropertyRef Name="slider_mehsul_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB_A3E145_SaglamligimModelStoreContainer">
+    <EntitySet Name="Adresim" EntityType="Self.Adresim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Elaqe" EntityType="Self.Elaqe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Endirim" EntityType="Self.Endirim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Galereya" EntityType="Self.Galereya" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Karusel" EntityType="Self.Karusel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kategoriya" EntityType="Self.Kategoriya" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mallar" EntityType="Self.Mallar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Servis" EntityType="Self.Servis" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Slayder" EntityType="Self.Slayder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zakazim" EntityType="Self.Zakazim" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Karusel_Mallar" Association="Self.FK_Karusel_Mallar">
+      <End Role="Mallar" EntitySet="Mallar" />
+      <End Role="Karusel" EntitySet="Karusel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mallar_Kategoriya" Association="Self.FK_Mallar_Kategoriya">
+      <End Role="Kategoriya" EntitySet="Kategoriya" />
+      <End Role="Mallar" EntitySet="Mallar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Slayder_Mallar" Association="Self.FK_Slayder_Mallar">
+      <End Role="Mallar" EntitySet="Mallar" />
+      <End Role="Slayder" EntitySet="Slayder" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,51 @@
+﻿@model AzmanAzWebPage.Models.Elaqe
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Az/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Elaqe</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.elaqe_ad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.elaqe_ad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.elaqe_soyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.elaqe_soyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.elaqe_telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.elaqe_telefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.elaqe_mesaji)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.elaqe_mesaji)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.elaqe_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

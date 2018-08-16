@@ -1,0 +1,27 @@
+﻿@model AzmanAzWebPage.Models.Kategoriya
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Az/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Kategoriya</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.kategorya_adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kategorya_adi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.kategorya_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

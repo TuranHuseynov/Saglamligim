@@ -1,0 +1,53 @@
+﻿@model AzmanAzWebPage.Viewmodel.MyModel
+@foreach (var item in Model._adresim)
+{
+    <div class="sosial text-center">
+        <a href="@item.adres_facebook"><i class="fa fa-facebook"  onmouseover="changeface(this)"  aria-hidden="true"></i></a>
+        <a href="@item.adres_instagram"><i class="fa fa-instagram" aria-hidden="true" onmouseover="change(this)"  onmouseout="normalinst(this)" style="padding: 9px 14px;"></i></a>
+        <a href="@item.adres_youtube"><i class="fa fa-youtube" aria-hidden="true" onmouseover="changeyutub(this)" onmouseout="normalyutub(this)" style="padding: 9px 14px;" ></i></a>
+    </div>
+
+}
+
+<script>
+    function change(element) {
+        var style = element.style;
+        style.background = "radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%)";
+        style.color = "white";
+        // Do something with style...
+        // Example: style.color = "red";
+    };
+   
+
+
+
+    function normalinst(element) {
+        var style = element.style;
+        style.background = "white";
+        style.color = "black";
+        // Do something with style...
+        // Example: style.color = "red";
+    };
+
+
+
+    function changeyutub(element) {
+        var style = element.style;
+        style.background = "#c4302b";
+        style.color = "white";
+        // Do something with style...
+        // Example: style.color = "red";
+    };
+
+    function normalyutub(element) {
+        var style = element.style;
+        style.background = "white";
+        style.color = "black";
+        // Do something with style...
+        // Example: style.color = "red";
+    };
+
+</script>
+
+ @*background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  color: white;*@

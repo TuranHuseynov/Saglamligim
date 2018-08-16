@@ -1,0 +1,103 @@
+﻿@model AzmanAzWebPage.Models.Adresim
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Az/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <section id="forma">
+        <div class=" container">
+            <div class="row">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.adres_id)
+
+                <div class="col-md-6">
+
+
+                    <div class="form-group">
+                        <h4>Telefon</h4>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.adres_telefon, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.adres_telefon, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <h4>Gmail</h4>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.adres_gmail, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.adres_gmail, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h4>Haqqimizda</h4>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.adres_about_text, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.adres_about_text, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+
+
+                    <div class="form-group">
+                        <h4>Facebook</h4>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.adres_facebook, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.adres_facebook, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Instagram</h4>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.adres_instagram, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.adres_instagram, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Youtube</h4>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.adres_youtube, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.adres_youtube, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Saxla" class="btn btn-default" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+}
+
+<div>
+    @Html.ActionLink("Geri", "Index")
+</div>
+
+<style>
+    h4 {
+        font-size: 1.3rem;
+        position: relative;
+        left: 27px;
+    }
+</style>
+

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<AzmanAzWebPage.Models.Adresim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Az/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.adres_telefon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adres_gmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adres_facebook)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adres_instagram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adres_youtube)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adres_about_text)
+        </th>
+       
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.adres_id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.adres_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.adres_id })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adres_telefon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adres_gmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adres_facebook)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adres_instagram)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adres_youtube)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adres_about_text)
+        </td>
+
+    </tr>
+}
+
+</table>

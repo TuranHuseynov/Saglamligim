@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_A3E145_azmanazModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Istifadeci">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="user_surname" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="user_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="user_salary" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="user_job_begin" Type="DateTime" Precision="0" />
+    <Property Name="user_email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="user_rol_type" Type="Int32" />
+    <NavigationProperty Name="Rol" Relationship="Self.FK_Istifadeci_Rol" FromRole="Istifadeci" ToRole="Rol" />
+    <NavigationProperty Name="Sifaris" Relationship="Self.FK_Sifaris_Istifadeci" FromRole="Istifadeci" ToRole="Sifaris" />
+  </EntityType>
+  <EntityType Name="Mehsul">
+    <Key>
+      <PropertyRef Name="mehsul_id" />
+    </Key>
+    <Property Name="mehsul_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mehsulun_adi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="mehsulun_linki" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="mehsulun_sekli" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="mehsul_qiymeti" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="mehsul_price" Type="Int32" />
+    <NavigationProperty Name="Sifaris" Relationship="Self.FK_Sifaris_Mehsul" FromRole="Mehsul" ToRole="Sifaris" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="rol_id" />
+    </Key>
+    <Property Name="rol_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rol_name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Istifadecis" Relationship="Self.FK_Istifadeci_Rol" FromRole="Rol" ToRole="Istifadeci" />
+  </EntityType>
+  <EntityType Name="Sifari">
+    <Key>
+      <PropertyRef Name="sifaris_id" />
+    </Key>
+    <Property Name="sifaris_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sifarisci_ad_soyad" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="sifarisci_telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sifarisci_mehsulun_id" Type="Int32" />
+    <Property Name="sifarisci_unvani" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sifaris_tarixi" Type="DateTime" Precision="3" />
+    <Property Name="sifaris_sayi" Type="Int32" />
+    <Property Name="sifaris_novu_id" Type="Int32" />
+    <Property Name="sifaris_erteleme_tarix" Type="DateTime" Precision="3" />
+    <Property Name="sifaris_goturen_id" Type="Int32" />
+    <Property Name="sifaris_mehsul_adi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="sifaris_qeyd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Istifadeci" Relationship="Self.FK_Sifaris_Istifadeci" FromRole="Sifaris" ToRole="Istifadeci" />
+    <NavigationProperty Name="Mehsul" Relationship="Self.FK_Sifaris_Mehsul" FromRole="Sifaris" ToRole="Mehsul" />
+    <NavigationProperty Name="SifarisNovu" Relationship="Self.FK_Sifaris_SifarisNovu" FromRole="Sifaris" ToRole="SifarisNovu" />
+  </EntityType>
+  <EntityType Name="SifarisNovu">
+    <Key>
+      <PropertyRef Name="sifaris_type_id" />
+    </Key>
+    <Property Name="sifaris_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sifaris_type" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sifaris" Relationship="Self.FK_Sifaris_SifarisNovu" FromRole="SifarisNovu" ToRole="Sifaris" />
+  </EntityType>
+  <Association Name="FK_Istifadeci_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+    <End Role="Istifadeci" Type="Self.Istifadeci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="rol_id" />
+      </Principal>
+      <Dependent Role="Istifadeci">
+        <PropertyRef Name="user_rol_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sifaris_Istifadeci">
+    <End Role="Istifadeci" Type="Self.Istifadeci" Multiplicity="0..1" />
+    <End Role="Sifaris" Type="Self.Sifari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Istifadeci">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Sifaris">
+        <PropertyRef Name="sifaris_goturen_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sifaris_Mehsul">
+    <End Role="Mehsul" Type="Self.Mehsul" Multiplicity="0..1" />
+    <End Role="Sifaris" Type="Self.Sifari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mehsul">
+        <PropertyRef Name="mehsul_id" />
+      </Principal>
+      <Dependent Role="Sifaris">
+        <PropertyRef Name="sifarisci_mehsulun_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sifaris_SifarisNovu">
+    <End Role="SifarisNovu" Type="Self.SifarisNovu" Multiplicity="0..1" />
+    <End Role="Sifaris" Type="Self.Sifari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SifarisNovu">
+        <PropertyRef Name="sifaris_type_id" />
+      </Principal>
+      <Dependent Role="Sifaris">
+        <PropertyRef Name="sifaris_novu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB_A3E145_azmanazEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Istifadecis" EntityType="Self.Istifadeci" />
+    <EntitySet Name="Mehsuls" EntityType="Self.Mehsul" />
+    <EntitySet Name="Rols" EntityType="Self.Rol" />
+    <EntitySet Name="Sifaris" EntityType="Self.Sifari" />
+    <EntitySet Name="SifarisNovus" EntityType="Self.SifarisNovu" />
+    <AssociationSet Name="FK_Istifadeci_Rol" Association="Self.FK_Istifadeci_Rol">
+      <End Role="Rol" EntitySet="Rols" />
+      <End Role="Istifadeci" EntitySet="Istifadecis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sifaris_Istifadeci" Association="Self.FK_Sifaris_Istifadeci">
+      <End Role="Istifadeci" EntitySet="Istifadecis" />
+      <End Role="Sifaris" EntitySet="Sifaris" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sifaris_Mehsul" Association="Self.FK_Sifaris_Mehsul">
+      <End Role="Mehsul" EntitySet="Mehsuls" />
+      <End Role="Sifaris" EntitySet="Sifaris" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sifaris_SifarisNovu" Association="Self.FK_Sifaris_SifarisNovu">
+      <End Role="SifarisNovu" EntitySet="SifarisNovus" />
+      <End Role="Sifaris" EntitySet="Sifaris" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

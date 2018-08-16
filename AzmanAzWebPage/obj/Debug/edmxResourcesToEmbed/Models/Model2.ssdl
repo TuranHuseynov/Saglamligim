@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_A3E145_azmanazModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Istifadeci">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="user_surname" Type="nvarchar" MaxLength="120" />
+    <Property Name="user_password" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_img" Type="nvarchar(max)" />
+    <Property Name="user_salary" Type="nvarchar" MaxLength="60" />
+    <Property Name="user_job_begin" Type="date" />
+    <Property Name="user_email" Type="nvarchar" MaxLength="500" />
+    <Property Name="user_rol_type" Type="int" />
+  </EntityType>
+  <EntityType Name="Mehsul">
+    <Key>
+      <PropertyRef Name="mehsul_id" />
+    </Key>
+    <Property Name="mehsul_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mehsulun_adi" Type="nchar" MaxLength="10" />
+    <Property Name="mehsulun_linki" Type="nvarchar" MaxLength="600" />
+    <Property Name="mehsulun_sekli" Type="nvarchar(max)" />
+    <Property Name="mehsul_qiymeti" Type="nvarchar" MaxLength="100" />
+    <Property Name="mehsul_price" Type="int" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="rol_id" />
+    </Key>
+    <Property Name="rol_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rol_name" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="Sifaris">
+    <Key>
+      <PropertyRef Name="sifaris_id" />
+    </Key>
+    <Property Name="sifaris_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sifarisci_ad_soyad" Type="nvarchar" MaxLength="200" />
+    <Property Name="sifarisci_telefon" Type="nvarchar" MaxLength="50" />
+    <Property Name="sifarisci_mehsulun_id" Type="int" />
+    <Property Name="sifarisci_unvani" Type="nvarchar(max)" />
+    <Property Name="sifaris_tarixi" Type="datetime" />
+    <Property Name="sifaris_sayi" Type="int" />
+    <Property Name="sifaris_novu_id" Type="int" />
+    <Property Name="sifaris_erteleme_tarix" Type="datetime" />
+    <Property Name="sifaris_goturen_id" Type="int" />
+    <Property Name="sifaris_mehsul_adi" Type="nvarchar" MaxLength="200" />
+    <Property Name="sifaris_qeyd" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="SifarisNovu">
+    <Key>
+      <PropertyRef Name="sifaris_type_id" />
+    </Key>
+    <Property Name="sifaris_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sifaris_type" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <Association Name="FK_Istifadeci_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+    <End Role="Istifadeci" Type="Self.Istifadeci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="rol_id" />
+      </Principal>
+      <Dependent Role="Istifadeci">
+        <PropertyRef Name="user_rol_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sifaris_Istifadeci">
+    <End Role="Istifadeci" Type="Self.Istifadeci" Multiplicity="0..1" />
+    <End Role="Sifaris" Type="Self.Sifaris" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Istifadeci">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Sifaris">
+        <PropertyRef Name="sifaris_goturen_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sifaris_Mehsul">
+    <End Role="Mehsul" Type="Self.Mehsul" Multiplicity="0..1" />
+    <End Role="Sifaris" Type="Self.Sifaris" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mehsul">
+        <PropertyRef Name="mehsul_id" />
+      </Principal>
+      <Dependent Role="Sifaris">
+        <PropertyRef Name="sifarisci_mehsulun_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sifaris_SifarisNovu">
+    <End Role="SifarisNovu" Type="Self.SifarisNovu" Multiplicity="0..1" />
+    <End Role="Sifaris" Type="Self.Sifaris" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SifarisNovu">
+        <PropertyRef Name="sifaris_type_id" />
+      </Principal>
+      <Dependent Role="Sifaris">
+        <PropertyRef Name="sifaris_novu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB_A3E145_azmanazModelStoreContainer">
+    <EntitySet Name="Istifadeci" EntityType="Self.Istifadeci" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mehsul" EntityType="Self.Mehsul" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sifaris" EntityType="Self.Sifaris" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SifarisNovu" EntityType="Self.SifarisNovu" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Istifadeci_Rol" Association="Self.FK_Istifadeci_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Istifadeci" EntitySet="Istifadeci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sifaris_Istifadeci" Association="Self.FK_Sifaris_Istifadeci">
+      <End Role="Istifadeci" EntitySet="Istifadeci" />
+      <End Role="Sifaris" EntitySet="Sifaris" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sifaris_Mehsul" Association="Self.FK_Sifaris_Mehsul">
+      <End Role="Mehsul" EntitySet="Mehsul" />
+      <End Role="Sifaris" EntitySet="Sifaris" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sifaris_SifarisNovu" Association="Self.FK_Sifaris_SifarisNovu">
+      <End Role="SifarisNovu" EntitySet="SifarisNovu" />
+      <End Role="Sifaris" EntitySet="Sifaris" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

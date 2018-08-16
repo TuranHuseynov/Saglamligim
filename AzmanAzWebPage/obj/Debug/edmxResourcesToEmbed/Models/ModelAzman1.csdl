@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AzmanAzWebsiteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="About">
+    <Key>
+      <PropertyRef Name="about_id" />
+    </Key>
+    <Property Name="about_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="about_header" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="about_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="about_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Banner">
+    <Key>
+      <PropertyRef Name="banner_id" />
+    </Key>
+    <Property Name="banner_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="banner_header" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="banner_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="banner_back_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="banner_link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="banner_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="contact_id" />
+    </Key>
+    <Property Name="contact_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="contact_phone" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="contact_email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="contact_address" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="contact_name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Servi">
+    <Key>
+      <PropertyRef Name="service_id" />
+    </Key>
+    <Property Name="service_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="service_header" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="service_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="service_icon" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="service_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Statistika">
+    <Key>
+      <PropertyRef Name="statistika_id" />
+    </Key>
+    <Property Name="statistika_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="statistika_icon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="statistika_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="statistika_count" Type="Int32" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="user_rol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="user_photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="AzmanAzWebsiteEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Abouts" EntityType="Self.About" />
+    <EntitySet Name="Banners" EntityType="Self.Banner" />
+    <EntitySet Name="Contacts" EntityType="Self.Contact" />
+    <EntitySet Name="Servis" EntityType="Self.Servi" />
+    <EntitySet Name="Statistikas" EntityType="Self.Statistika" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="BestServices" EntityType="AzmanAzWebsiteModel.BestService" />
+    <EntitySet Name="Offers" EntityType="AzmanAzWebsiteModel.Offer" />
+    <EntitySet Name="Galleries" EntityType="AzmanAzWebsiteModel.Gallery" />
+    <EntitySet Name="Mehsuls" EntityType="AzmanAzWebsiteModel.Mehsul" />
+    <AssociationSet Name="FK_Gallery_Mehsul" Association="AzmanAzWebsiteModel.FK_Gallery_Mehsul">
+      <End Role="Mehsul" EntitySet="Mehsuls" />
+      <End Role="Gallery" EntitySet="Galleries" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BestService">
+    <Key>
+      <PropertyRef Name="bestservis_id" />
+    </Key>
+    <Property Name="bestservis_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bestservice_header" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="bestservice_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Offer">
+    <Key>
+      <PropertyRef Name="offer_id" />
+    </Key>
+    <Property Name="offer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="offer_header" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="offer_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="offer_icon" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Gallery">
+    <Key>
+      <PropertyRef Name="gallery_id" />
+    </Key>
+    <Property Name="gallery_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="galery_img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="gallery_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="gallery_header" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="gallery_mehsul_id" Type="Int32" />
+    <NavigationProperty Name="Mehsul" Relationship="AzmanAzWebsiteModel.FK_Gallery_Mehsul" FromRole="Gallery" ToRole="Mehsul" />
+  </EntityType>
+  <EntityType Name="Mehsul">
+    <Key>
+      <PropertyRef Name="mehsul_id" />
+    </Key>
+    <Property Name="mehsul_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mehsul_ad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="mehsul_link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="mehsul_qiymet" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="mehsul_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Galleries" Relationship="AzmanAzWebsiteModel.FK_Gallery_Mehsul" FromRole="Mehsul" ToRole="Gallery" />
+  </EntityType>
+  <Association Name="FK_Gallery_Mehsul">
+    <End Type="AzmanAzWebsiteModel.Mehsul" Role="Mehsul" Multiplicity="0..1" />
+    <End Type="AzmanAzWebsiteModel.Gallery" Role="Gallery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mehsul">
+        <PropertyRef Name="mehsul_id" />
+      </Principal>
+      <Dependent Role="Gallery">
+        <PropertyRef Name="gallery_mehsul_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

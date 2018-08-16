@@ -1,0 +1,465 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_A3E145_SaglamligimModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adresim">
+          <Key>
+            <PropertyRef Name="adres_id" />
+          </Key>
+          <Property Name="adres_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adres_telefon" Type="nvarchar" MaxLength="70" />
+          <Property Name="adres_gmail" Type="nvarchar" MaxLength="400" />
+          <Property Name="adres_facebook" Type="nvarchar(max)" />
+          <Property Name="adres_instagram" Type="nvarchar(max)" />
+          <Property Name="adres_youtube" Type="nvarchar(max)" />
+          <Property Name="adres_about_text" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Elaqe">
+          <Key>
+            <PropertyRef Name="elaqe_id" />
+          </Key>
+          <Property Name="elaqe_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="elaqe_ad" Type="nvarchar" MaxLength="100" />
+          <Property Name="elaqe_soyad" Type="nvarchar" MaxLength="100" />
+          <Property Name="elaqe_telefon" Type="nvarchar" MaxLength="60" />
+          <Property Name="elaqe_mesaji" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Endirim">
+          <Key>
+            <PropertyRef Name="endirim_id" />
+          </Key>
+          <Property Name="endirim_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="endirim_novu" Type="nvarchar" MaxLength="200" />
+          <Property Name="edirim_faiz" Type="nvarchar" MaxLength="10" />
+          <Property Name="endirim_detail" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Galereya">
+          <Key>
+            <PropertyRef Name="galery_id" />
+          </Key>
+          <Property Name="galery_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="galery_header" Type="nvarchar" MaxLength="400" />
+          <Property Name="galery_text" Type="nvarchar(max)" />
+          <Property Name="galery_image" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Karusel">
+          <Key>
+            <PropertyRef Name="karusel_id" />
+          </Key>
+          <Property Name="karusel_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="karusel_image" Type="nvarchar(max)" />
+          <Property Name="karusel_mehsul_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Kategoriya">
+          <Key>
+            <PropertyRef Name="kategorya_id" />
+          </Key>
+          <Property Name="kategorya_id" Type="int" Nullable="false" />
+          <Property Name="kategorya_adi" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Mallar">
+          <Key>
+            <PropertyRef Name="mal_id" />
+          </Key>
+          <Property Name="mal_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mal_adi" Type="nvarchar" MaxLength="200" />
+          <Property Name="mal_qiymeti" Type="nvarchar" MaxLength="20" />
+          <Property Name="mal_youtube_link" Type="nvarchar(max)" />
+          <Property Name="mal_web_link" Type="nvarchar(max)" />
+          <Property Name="mal_info" Type="nvarchar(max)" />
+          <Property Name="mal_bawliq" Type="nvarchar" MaxLength="500" />
+          <Property Name="mal_kateqoriyasi" Type="int" />
+          <Property Name="mal_resmi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Servis">
+          <Key>
+            <PropertyRef Name="servis_id" />
+          </Key>
+          <Property Name="servis_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="servis_adi" Type="nvarchar" MaxLength="500" />
+          <Property Name="servis_content" Type="nvarchar(max)" />
+          <Property Name="servis_icon" Type="nvarchar" MaxLength="800" />
+        </EntityType>
+        <EntityType Name="Slayder">
+          <Key>
+            <PropertyRef Name="slider_id" />
+          </Key>
+          <Property Name="slider_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="slider_image" Type="nvarchar(max)" />
+          <Property Name="slider_mehsul_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Zakazim">
+          <Key>
+            <PropertyRef Name="zakazim_id" />
+          </Key>
+          <Property Name="zakazim_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="zakazim_adi_soyad" Type="nvarchar" MaxLength="250" />
+          <Property Name="zakazim_telefon" Type="nvarchar" MaxLength="80" />
+          <Property Name="zakazim_mehsul" Type="nvarchar(max)" />
+          <Property Name="zakaz_vaxti" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Karusel_Mallar">
+          <End Role="Mallar" Type="Self.Mallar" Multiplicity="0..1" />
+          <End Role="Karusel" Type="Self.Karusel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mallar">
+              <PropertyRef Name="mal_id" />
+            </Principal>
+            <Dependent Role="Karusel">
+              <PropertyRef Name="karusel_mehsul_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mallar_Kategoriya">
+          <End Role="Kategoriya" Type="Self.Kategoriya" Multiplicity="0..1" />
+          <End Role="Mallar" Type="Self.Mallar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategoriya">
+              <PropertyRef Name="kategorya_id" />
+            </Principal>
+            <Dependent Role="Mallar">
+              <PropertyRef Name="mal_kateqoriyasi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Slayder_Mallar">
+          <End Role="Mallar" Type="Self.Mallar" Multiplicity="0..1" />
+          <End Role="Slayder" Type="Self.Slayder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mallar">
+              <PropertyRef Name="mal_id" />
+            </Principal>
+            <Dependent Role="Slayder">
+              <PropertyRef Name="slider_mehsul_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_A3E145_SaglamligimModelStoreContainer">
+          <EntitySet Name="Adresim" EntityType="Self.Adresim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Elaqe" EntityType="Self.Elaqe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Endirim" EntityType="Self.Endirim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Galereya" EntityType="Self.Galereya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Karusel" EntityType="Self.Karusel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategoriya" EntityType="Self.Kategoriya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mallar" EntityType="Self.Mallar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servis" EntityType="Self.Servis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Slayder" EntityType="Self.Slayder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zakazim" EntityType="Self.Zakazim" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Karusel_Mallar" Association="Self.FK_Karusel_Mallar">
+            <End Role="Mallar" EntitySet="Mallar" />
+            <End Role="Karusel" EntitySet="Karusel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mallar_Kategoriya" Association="Self.FK_Mallar_Kategoriya">
+            <End Role="Kategoriya" EntitySet="Kategoriya" />
+            <End Role="Mallar" EntitySet="Mallar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Slayder_Mallar" Association="Self.FK_Slayder_Mallar">
+            <End Role="Mallar" EntitySet="Mallar" />
+            <End Role="Slayder" EntitySet="Slayder" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_A3E145_SaglamligimModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adresim">
+          <Key>
+            <PropertyRef Name="adres_id" />
+          </Key>
+          <Property Name="adres_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adres_telefon" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="adres_gmail" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="adres_facebook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="adres_instagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="adres_youtube" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="adres_about_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Elaqe">
+          <Key>
+            <PropertyRef Name="elaqe_id" />
+          </Key>
+          <Property Name="elaqe_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="elaqe_ad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="elaqe_soyad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="elaqe_telefon" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="elaqe_mesaji" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Endirim">
+          <Key>
+            <PropertyRef Name="endirim_id" />
+          </Key>
+          <Property Name="endirim_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="endirim_novu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="edirim_faiz" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="endirim_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Karusel">
+          <Key>
+            <PropertyRef Name="karusel_id" />
+          </Key>
+          <Property Name="karusel_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="karusel_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="karusel_mehsul_id" Type="Int32" />
+          <NavigationProperty Name="Mallar" Relationship="DB_A3E145_SaglamligimModel.FK_Karusel_Mallar" FromRole="Karusel" ToRole="Mallar" />
+        </EntityType>
+        <EntityType Name="Kategoriya">
+          <Key>
+            <PropertyRef Name="kategorya_id" />
+          </Key>
+          <Property Name="kategorya_id" Type="Int32" Nullable="false" />
+          <Property Name="kategorya_adi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Mallars" Relationship="DB_A3E145_SaglamligimModel.FK_Mallar_Kategoriya" FromRole="Kategoriya" ToRole="Mallar" />
+        </EntityType>
+        <EntityType Name="Servi">
+          <Key>
+            <PropertyRef Name="servis_id" />
+          </Key>
+          <Property Name="servis_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="servis_adi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="servis_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="servis_icon" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Slayder">
+          <Key>
+            <PropertyRef Name="slider_id" />
+          </Key>
+          <Property Name="slider_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="slider_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="slider_mehsul_id" Type="Int32" />
+          <NavigationProperty Name="Mallar" Relationship="DB_A3E145_SaglamligimModel.FK_Slayder_Mallar" FromRole="Slayder" ToRole="Mallar" />
+        </EntityType>
+        <EntityContainer Name="DB_A3E145_SaglamligimEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adresims" EntityType="Self.Adresim" />
+          <EntitySet Name="Elaqes" EntityType="Self.Elaqe" />
+          <EntitySet Name="Endirims" EntityType="Self.Endirim" />
+          <EntitySet Name="Karusels" EntityType="Self.Karusel" />
+          <EntitySet Name="Kategoriyas" EntityType="Self.Kategoriya" />
+          <EntitySet Name="Servis" EntityType="Self.Servi" />
+          <EntitySet Name="Slayders" EntityType="Self.Slayder" />
+          <EntitySet Name="Mallars" EntityType="DB_A3E145_SaglamligimModel.Mallar" />
+          <AssociationSet Name="FK_Karusel_Mallar" Association="DB_A3E145_SaglamligimModel.FK_Karusel_Mallar">
+            <End Role="Mallar" EntitySet="Mallars" />
+            <End Role="Karusel" EntitySet="Karusels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mallar_Kategoriya" Association="DB_A3E145_SaglamligimModel.FK_Mallar_Kategoriya">
+            <End Role="Kategoriya" EntitySet="Kategoriyas" />
+            <End Role="Mallar" EntitySet="Mallars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Slayder_Mallar" Association="DB_A3E145_SaglamligimModel.FK_Slayder_Mallar">
+            <End Role="Mallar" EntitySet="Mallars" />
+            <End Role="Slayder" EntitySet="Slayders" />
+          </AssociationSet>
+          <EntitySet Name="Galereyas" EntityType="DB_A3E145_SaglamligimModel.Galereya" />
+          <EntitySet Name="Zakazims" EntityType="DB_A3E145_SaglamligimModel.Zakazim" />
+          </EntityContainer>
+        <EntityType Name="Mallar">
+          <Key>
+            <PropertyRef Name="mal_id" />
+          </Key>
+          <Property Name="mal_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mal_adi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="mal_qiymeti" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="mal_youtube_link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mal_web_link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mal_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mal_bawliq" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="mal_kateqoriyasi" Type="Int32" />
+          <Property Name="mal_resmi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Karusels" Relationship="DB_A3E145_SaglamligimModel.FK_Karusel_Mallar" FromRole="Mallar" ToRole="Karusel" />
+          <NavigationProperty Name="Kategoriya" Relationship="DB_A3E145_SaglamligimModel.FK_Mallar_Kategoriya" FromRole="Mallar" ToRole="Kategoriya" />
+          <NavigationProperty Name="Slayders" Relationship="DB_A3E145_SaglamligimModel.FK_Slayder_Mallar" FromRole="Mallar" ToRole="Slayder" />
+        </EntityType>
+        <Association Name="FK_Karusel_Mallar">
+          <End Type="DB_A3E145_SaglamligimModel.Mallar" Role="Mallar" Multiplicity="0..1" />
+          <End Type="DB_A3E145_SaglamligimModel.Karusel" Role="Karusel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mallar">
+              <PropertyRef Name="mal_id" />
+            </Principal>
+            <Dependent Role="Karusel">
+              <PropertyRef Name="karusel_mehsul_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mallar_Kategoriya">
+          <End Type="DB_A3E145_SaglamligimModel.Kategoriya" Role="Kategoriya" Multiplicity="0..1" />
+          <End Type="DB_A3E145_SaglamligimModel.Mallar" Role="Mallar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategoriya">
+              <PropertyRef Name="kategorya_id" />
+            </Principal>
+            <Dependent Role="Mallar">
+              <PropertyRef Name="mal_kateqoriyasi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Slayder_Mallar">
+          <End Type="DB_A3E145_SaglamligimModel.Mallar" Role="Mallar" Multiplicity="0..1" />
+          <End Type="DB_A3E145_SaglamligimModel.Slayder" Role="Slayder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mallar">
+              <PropertyRef Name="mal_id" />
+            </Principal>
+            <Dependent Role="Slayder">
+              <PropertyRef Name="slider_mehsul_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Galereya">
+          <Key>
+            <PropertyRef Name="galery_id" />
+          </Key>
+          <Property Name="galery_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="galery_header" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="galery_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="galery_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Zakazim">
+          <Key>
+            <PropertyRef Name="zakazim_id" />
+          </Key>
+          <Property Name="zakazim_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="zakazim_adi_soyad" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="zakazim_telefon" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="zakazim_mehsul" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="zakaz_vaxti" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_A3E145_SaglamligimModelStoreContainer" CdmEntityContainer="DB_A3E145_SaglamligimEntities">
+          <EntitySetMapping Name="Adresims">
+            <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Adresim">
+              <MappingFragment StoreEntitySet="Adresim">
+                <ScalarProperty Name="adres_id" ColumnName="adres_id" />
+                <ScalarProperty Name="adres_telefon" ColumnName="adres_telefon" />
+                <ScalarProperty Name="adres_gmail" ColumnName="adres_gmail" />
+                <ScalarProperty Name="adres_facebook" ColumnName="adres_facebook" />
+                <ScalarProperty Name="adres_instagram" ColumnName="adres_instagram" />
+                <ScalarProperty Name="adres_youtube" ColumnName="adres_youtube" />
+                <ScalarProperty Name="adres_about_text" ColumnName="adres_about_text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Elaqes">
+            <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Elaqe">
+              <MappingFragment StoreEntitySet="Elaqe">
+                <ScalarProperty Name="elaqe_id" ColumnName="elaqe_id" />
+                <ScalarProperty Name="elaqe_ad" ColumnName="elaqe_ad" />
+                <ScalarProperty Name="elaqe_soyad" ColumnName="elaqe_soyad" />
+                <ScalarProperty Name="elaqe_telefon" ColumnName="elaqe_telefon" />
+                <ScalarProperty Name="elaqe_mesaji" ColumnName="elaqe_mesaji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Endirims">
+            <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Endirim">
+              <MappingFragment StoreEntitySet="Endirim">
+                <ScalarProperty Name="endirim_id" ColumnName="endirim_id" />
+                <ScalarProperty Name="endirim_novu" ColumnName="endirim_novu" />
+                <ScalarProperty Name="edirim_faiz" ColumnName="edirim_faiz" />
+                <ScalarProperty Name="endirim_detail" ColumnName="endirim_detail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Karusels">
+            <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Karusel">
+              <MappingFragment StoreEntitySet="Karusel">
+                <ScalarProperty Name="karusel_id" ColumnName="karusel_id" />
+                <ScalarProperty Name="karusel_image" ColumnName="karusel_image" />
+                <ScalarProperty Name="karusel_mehsul_id" ColumnName="karusel_mehsul_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategoriyas">
+            <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Kategoriya">
+              <MappingFragment StoreEntitySet="Kategoriya">
+                <ScalarProperty Name="kategorya_id" ColumnName="kategorya_id" />
+                <ScalarProperty Name="kategorya_adi" ColumnName="kategorya_adi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servis">
+            <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Servi">
+              <MappingFragment StoreEntitySet="Servis">
+                <ScalarProperty Name="servis_id" ColumnName="servis_id" />
+                <ScalarProperty Name="servis_adi" ColumnName="servis_adi" />
+                <ScalarProperty Name="servis_content" ColumnName="servis_content" />
+                <ScalarProperty Name="servis_icon" ColumnName="servis_icon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Slayders">
+            <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Slayder">
+              <MappingFragment StoreEntitySet="Slayder">
+                <ScalarProperty Name="slider_id" ColumnName="slider_id" />
+                <ScalarProperty Name="slider_image" ColumnName="slider_image" />
+                <ScalarProperty Name="slider_mehsul_id" ColumnName="slider_mehsul_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mallars">
+            <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Mallar">
+              <MappingFragment StoreEntitySet="Mallar">
+                <ScalarProperty Name="mal_resmi" ColumnName="mal_resmi" />
+                <ScalarProperty Name="mal_kateqoriyasi" ColumnName="mal_kateqoriyasi" />
+                <ScalarProperty Name="mal_bawliq" ColumnName="mal_bawliq" />
+                <ScalarProperty Name="mal_info" ColumnName="mal_info" />
+                <ScalarProperty Name="mal_web_link" ColumnName="mal_web_link" />
+                <ScalarProperty Name="mal_youtube_link" ColumnName="mal_youtube_link" />
+                <ScalarProperty Name="mal_qiymeti" ColumnName="mal_qiymeti" />
+                <ScalarProperty Name="mal_adi" ColumnName="mal_adi" />
+                <ScalarProperty Name="mal_id" ColumnName="mal_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Galereyas">
+            <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Galereya">
+              <MappingFragment StoreEntitySet="Galereya">
+                <ScalarProperty Name="galery_image" ColumnName="galery_image" />
+                <ScalarProperty Name="galery_text" ColumnName="galery_text" />
+                <ScalarProperty Name="galery_header" ColumnName="galery_header" />
+                <ScalarProperty Name="galery_id" ColumnName="galery_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zakazims">
+            <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Zakazim">
+              <MappingFragment StoreEntitySet="Zakazim">
+                <ScalarProperty Name="zakaz_vaxti" ColumnName="zakaz_vaxti" />
+                <ScalarProperty Name="zakazim_mehsul" ColumnName="zakazim_mehsul" />
+                <ScalarProperty Name="zakazim_telefon" ColumnName="zakazim_telefon" />
+                <ScalarProperty Name="zakazim_adi_soyad" ColumnName="zakazim_adi_soyad" />
+                <ScalarProperty Name="zakazim_id" ColumnName="zakazim_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

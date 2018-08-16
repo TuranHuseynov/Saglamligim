@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Saglamligim</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/YeniWeb/css/style.css">
+    <link rel="icon" type="image/png" href="http://pluspng.com/img-png/png-health-health-png-file-600.png">
+</head>
+<body id="bodys">
+    <section id="nav" class="text-center" style="font-size: 20px;">
+        <nav class="navbar navbar-default" role="navigation">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Saglamligim.com</a>
+                <form class="navbar-form navbar-left" role="search">
+                    @*<div class="form-group">
+                        <input type="text" class="form-control" placeholder="Axtar" id="myInput" name="myInput">
+                    </div>*@
+
+                </form>
+            </div>
+
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/Home/Index">Ana səhifə</a></li>
+                    <li><a href="/Home/Şirkətimiz">Haqqımızda</a></li>
+                    <li><a href="/Home/Galereya">Galereya</a></li>
+                    @*<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Məhsullar <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="blog.html">Double 48</a></li>
+                            <li><a href="#">Sigarason</a></li>
+                            <li><a href="#">Tüytökücü</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>*@
+                </ul>
+
+            </div>
+        </nav>
+    </section>
+
+    <div class="clearfix"></div>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-xs-12">
+                    <a href="/Home/Index">
+                        <img src="~/YeniWeb/images/logo.png" style="margin-top: 10px;
+    width: 100%;">
+                    </a>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    @Html.Partial("_AdresWeb")
+                    <!--     <div class="saat text-center">
+                          <i class="fa fa-clock-o saatic" aria-hidden="true"></i>
+                          <p class="onsekk">10:00 - 18:00</p>
+                        </div> -->
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    @Html.Partial("_AdresPhone")
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <div class="clearfix"></div>
+
+    @RenderBody()
+
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1>Bizimlə Əlaqə</h1>
+                    <h3 class="section-subheading text-muted">Sual ve sorğularınızı bu bölmədə yazıb bizə göndərə bilərsiniz</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <form action="/Home/Contact" method="post" name="sentMessage" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input class="form-control" id="name" type="text" placeholder="Ad *" name="elaqe_ad" required="required" data-validation-required-message="Ad qeyd edin">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" id="email" type="text" placeholder="Soyad *" name="elaqe_soyad" required="required" data-validation-required-message="Soyad qeyd edin">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" id="phone" type="tel" placeholder="Telefon *" name="elaqe_telefon" required="required" data-validation-required-message="Telefon nömrəsi daxil edin.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea class="form-control" id="message" placeholder="Mesajınız*" name="elaqe_mesaji" required="required" data-validation-required-message="Mesajı daxil edin"></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                                <div id="success"></div>
+                                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit" style="margin-bottom: 24px;
+    background: no-repeat;
+    border: 1px solid #ccc;
+    padding: 10px 23px;">
+                                    Göndər
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="clearfix"></div>
+
+
+    <section id="footer">
+        <p class="text-center" style="font-size: 20px;
+    letter-spacing: 2px;
+
+    font-style: italic;
+    padding: 14px;">2018 Bütün Hüquqlar qorunur .</p>
+    </section>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="~/YeniWeb/js/script.js"></script>
+</body>
+</html>

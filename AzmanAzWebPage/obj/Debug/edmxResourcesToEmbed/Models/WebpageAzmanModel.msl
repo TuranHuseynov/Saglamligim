@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_A3E145_azmanazwebpageModelStoreContainer" CdmEntityContainer="DB_A3E145_azmanazwebpageEntities">
+    <EntitySetMapping Name="Abouts">
+      <EntityTypeMapping TypeName="DB_A3E145_azmanazwebpageModel.About">
+        <MappingFragment StoreEntitySet="About">
+          <ScalarProperty Name="about_id" ColumnName="about_id" />
+          <ScalarProperty Name="about_header" ColumnName="about_header" />
+          <ScalarProperty Name="about_content" ColumnName="about_content" />
+          <ScalarProperty Name="about_text" ColumnName="about_text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Banners">
+      <EntityTypeMapping TypeName="DB_A3E145_azmanazwebpageModel.Banner">
+        <MappingFragment StoreEntitySet="Banner">
+          <ScalarProperty Name="banner_id" ColumnName="banner_id" />
+          <ScalarProperty Name="banner_header" ColumnName="banner_header" />
+          <ScalarProperty Name="banner_content" ColumnName="banner_content" />
+          <ScalarProperty Name="banner_back_img" ColumnName="banner_back_img" />
+          <ScalarProperty Name="banner_link" ColumnName="banner_link" />
+          <ScalarProperty Name="banner_text" ColumnName="banner_text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BestServices">
+      <EntityTypeMapping TypeName="DB_A3E145_azmanazwebpageModel.BestService">
+        <MappingFragment StoreEntitySet="BestService">
+          <ScalarProperty Name="bestservice_id" ColumnName="bestservice_id" />
+          <ScalarProperty Name="bestservice_header" ColumnName="bestservice_header" />
+          <ScalarProperty Name="bestservice_content" ColumnName="bestservice_content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="DB_A3E145_azmanazwebpageModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="contact_web_page" ColumnName="contact_web_page" />
+          <ScalarProperty Name="contact_phone" ColumnName="contact_phone" />
+          <ScalarProperty Name="contact_surname" ColumnName="contact_surname" />
+          <ScalarProperty Name="contact_id" ColumnName="contact_id" />
+          <ScalarProperty Name="contact_name" ColumnName="contact_name" />
+          <ScalarProperty Name="contact_email" ColumnName="contact_email" />
+          <ScalarProperty Name="contact_message" ColumnName="contact_message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Galleries">
+      <EntityTypeMapping TypeName="DB_A3E145_azmanazwebpageModel.Gallery">
+        <MappingFragment StoreEntitySet="Gallery">
+          <ScalarProperty Name="gallery_id" ColumnName="gallery_id" />
+          <ScalarProperty Name="gallery_img" ColumnName="gallery_img" />
+          <ScalarProperty Name="gallery_content" ColumnName="gallery_content" />
+          <ScalarProperty Name="gallery_header" ColumnName="gallery_header" />
+          <ScalarProperty Name="gallery_mehsul_id" ColumnName="gallery_mehsul_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Offers">
+      <EntityTypeMapping TypeName="DB_A3E145_azmanazwebpageModel.Offer">
+        <MappingFragment StoreEntitySet="Offer">
+          <ScalarProperty Name="offer_id" ColumnName="offer_id" />
+          <ScalarProperty Name="offer_header" ColumnName="offer_header" />
+          <ScalarProperty Name="offer_content" ColumnName="offer_content" />
+          <ScalarProperty Name="offer_icon" ColumnName="offer_icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="DB_A3E145_azmanazwebpageModel.Service">
+        <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="service_id" ColumnName="service_id" />
+          <ScalarProperty Name="service_header" ColumnName="service_header" />
+          <ScalarProperty Name="service_content" ColumnName="service_content" />
+          <ScalarProperty Name="sevice_icon" ColumnName="sevice_icon" />
+          <ScalarProperty Name="service_img" ColumnName="service_img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Statistikas">
+      <EntityTypeMapping TypeName="DB_A3E145_azmanazwebpageModel.Statistika">
+        <MappingFragment StoreEntitySet="Statistika">
+          <ScalarProperty Name="statistika_id" ColumnName="statistika_id" />
+          <ScalarProperty Name="statistika_icon" ColumnName="statistika_icon" />
+          <ScalarProperty Name="statistika_name" ColumnName="statistika_name" />
+          <ScalarProperty Name="statistika_count" ColumnName="statistika_count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DB_A3E145_azmanazwebpageModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_rol" ColumnName="user_rol" />
+          <ScalarProperty Name="user_comment" ColumnName="user_comment" />
+          <ScalarProperty Name="user_photo" ColumnName="user_photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zakazs">
+      <EntityTypeMapping TypeName="DB_A3E145_azmanazwebpageModel.Zakaz">
+        <MappingFragment StoreEntitySet="Zakaz">
+          <ScalarProperty Name="mehsul_sifaris" ColumnName="mehsul_sifaris" />
+          <ScalarProperty Name="sifaris_telefon" ColumnName="sifaris_telefon" />
+          <ScalarProperty Name="sifaris_ad_soyad" ColumnName="sifaris_ad_soyad" />
+          <ScalarProperty Name="sifaris_id" ColumnName="sifaris_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mallars">
+      <EntityTypeMapping TypeName="DB_A3E145_azmanazwebpageModel.Mallar">
+        <MappingFragment StoreEntitySet="Mallar">
+          <ScalarProperty Name="mehsul_detail" ColumnName="mehsul_detail" />
+          <ScalarProperty Name="mehsul_qiymet" ColumnName="mehsul_qiymet" />
+          <ScalarProperty Name="mehsul_link" ColumnName="mehsul_link" />
+          <ScalarProperty Name="mehsul_ad" ColumnName="mehsul_ad" />
+          <ScalarProperty Name="mehsul_id" ColumnName="mehsul_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

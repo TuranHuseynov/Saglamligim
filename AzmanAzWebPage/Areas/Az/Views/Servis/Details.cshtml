@@ -1,0 +1,43 @@
+﻿@model AzmanAzWebPage.Models.Servi
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Az/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Servi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.servis_adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.servis_adi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.servis_content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.servis_content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.servis_icon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.servis_icon)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.servis_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

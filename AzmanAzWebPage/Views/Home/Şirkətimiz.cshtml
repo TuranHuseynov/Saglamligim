@@ -1,0 +1,17 @@
+﻿@model AzmanAzWebPage.Viewmodel.MyModel
+@{
+    ViewBag.Title = "Şirkətimiz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="information">
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center">Saglamligim.com</h2>
+            
+            <p style="padding: 20px;">@Model._adresim[0].adres_about_text</p>
+            
+        </div>
+    </div>
+
+</section>

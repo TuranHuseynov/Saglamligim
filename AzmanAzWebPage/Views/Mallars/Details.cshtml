@@ -1,0 +1,83 @@
+﻿@model AzmanAzWebPage.Models.Mallar
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Az/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Mallar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.mal_adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mal_adi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mal_qiymeti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mal_qiymeti)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mal_youtube_link)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mal_youtube_link)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mal_web_link)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mal_web_link)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mal_info)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mal_info)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mal_bawliq)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mal_bawliq)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mal_resmi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mal_resmi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kategoriya.kategorya_adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kategoriya.kategorya_adi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.mal_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

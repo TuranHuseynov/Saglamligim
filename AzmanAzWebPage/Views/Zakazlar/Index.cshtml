@@ -1,0 +1,52 @@
+﻿@model IEnumerable<AzmanAzWebPage.Models.Zakazim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Az/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.zakazim_adi_soyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.zakazim_telefon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.zakazim_mehsul)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.zakaz_vaxti)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.zakazim_adi_soyad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.zakazim_telefon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.zakazim_mehsul)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.zakaz_vaxti)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.zakazim_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.zakazim_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.zakazim_id })
+        </td>
+    </tr>
+}
+
+</table>

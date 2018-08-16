@@ -1,0 +1,41 @@
+﻿@model AzmanAzWebPage.Models.Karusel
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Az/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Karusel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.karusel_image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.karusel_image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mallar.mal_adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mallar.mal_adi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

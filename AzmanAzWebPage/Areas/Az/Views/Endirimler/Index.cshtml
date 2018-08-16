@@ -1,0 +1,46 @@
+﻿@model IEnumerable<AzmanAzWebPage.Models.Endirim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Az/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.endirim_novu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edirim_faiz)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endirim_detail)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.endirim_novu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.edirim_faiz)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.endirim_detail)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.endirim_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.endirim_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.endirim_id })
+        </td>
+    </tr>
+}
+
+</table>

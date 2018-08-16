@@ -1,0 +1,51 @@
+﻿@model AzmanAzWebPage.Models.Zakazim
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Az/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Zakazim</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.zakazim_adi_soyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zakazim_adi_soyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zakazim_telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zakazim_telefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zakazim_mehsul)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zakazim_mehsul)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zakaz_vaxti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zakaz_vaxti)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.zakazim_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

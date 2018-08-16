@@ -1,0 +1,25 @@
+﻿@model AzmanAzWebPage.Viewmodel.MyModel
+@{
+    ViewBag.Title = "EndirimBlog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<section id="post">
+    <div class="container">
+        @foreach (var item in Model._endirim)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center anim">@item.endirim_novu @item.edirim_faiz endirim</h1>
+                <p class="text-center" style="margin-bottom:30px;">	@item.endirim_detail</p>
+                
+
+            </div>
+        </div>
+
+}
+    </div>
+</section>

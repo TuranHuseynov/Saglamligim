@@ -1,0 +1,40 @@
+﻿@model IEnumerable<AzmanAzWebPage.Models.Karusel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Az/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.karusel_image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mallar.mal_adi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="~/Yuklenen/@item.karusel_image" style="width:78%;" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mallar.mal_adi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.karusel_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.karusel_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.karusel_id })
+        </td>
+    </tr>
+}
+
+</table>

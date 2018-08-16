@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dd808235a36b409ebe0726bb0602f464" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_A3E145_SaglamligimModel.Adresim" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A3E145_SaglamligimModel.Elaqe" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A3E145_SaglamligimModel.Endirim" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A3E145_SaglamligimModel.Karusel" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A3E145_SaglamligimModel.Kategoriya" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A3E145_SaglamligimModel.Servi" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A3E145_SaglamligimModel.Slayder" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A3E145_SaglamligimModel.Mallar" Width="1.5" PointX="10" PointY="5.625" />
+        <AssociationConnector Association="DB_A3E145_SaglamligimModel.FK_Karusel_Mallar" />
+        <AssociationConnector Association="DB_A3E145_SaglamligimModel.FK_Mallar_Kategoriya" />
+        <AssociationConnector Association="DB_A3E145_SaglamligimModel.FK_Slayder_Mallar" />
+        <EntityTypeShape EntityType="DB_A3E145_SaglamligimModel.Galereya" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DB_A3E145_SaglamligimModel.Zakazim" Width="1.5" PointX="5.375" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

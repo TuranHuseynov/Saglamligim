@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_A3E145_SaglamligimModelStoreContainer" CdmEntityContainer="DB_A3E145_SaglamligimEntities">
+    <EntitySetMapping Name="Adresims">
+      <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Adresim">
+        <MappingFragment StoreEntitySet="Adresim">
+          <ScalarProperty Name="adres_id" ColumnName="adres_id" />
+          <ScalarProperty Name="adres_telefon" ColumnName="adres_telefon" />
+          <ScalarProperty Name="adres_gmail" ColumnName="adres_gmail" />
+          <ScalarProperty Name="adres_facebook" ColumnName="adres_facebook" />
+          <ScalarProperty Name="adres_instagram" ColumnName="adres_instagram" />
+          <ScalarProperty Name="adres_youtube" ColumnName="adres_youtube" />
+          <ScalarProperty Name="adres_about_text" ColumnName="adres_about_text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Elaqes">
+      <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Elaqe">
+        <MappingFragment StoreEntitySet="Elaqe">
+          <ScalarProperty Name="elaqe_id" ColumnName="elaqe_id" />
+          <ScalarProperty Name="elaqe_ad" ColumnName="elaqe_ad" />
+          <ScalarProperty Name="elaqe_soyad" ColumnName="elaqe_soyad" />
+          <ScalarProperty Name="elaqe_telefon" ColumnName="elaqe_telefon" />
+          <ScalarProperty Name="elaqe_mesaji" ColumnName="elaqe_mesaji" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Endirims">
+      <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Endirim">
+        <MappingFragment StoreEntitySet="Endirim">
+          <ScalarProperty Name="endirim_id" ColumnName="endirim_id" />
+          <ScalarProperty Name="endirim_novu" ColumnName="endirim_novu" />
+          <ScalarProperty Name="edirim_faiz" ColumnName="edirim_faiz" />
+          <ScalarProperty Name="endirim_detail" ColumnName="endirim_detail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Karusels">
+      <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Karusel">
+        <MappingFragment StoreEntitySet="Karusel">
+          <ScalarProperty Name="karusel_id" ColumnName="karusel_id" />
+          <ScalarProperty Name="karusel_image" ColumnName="karusel_image" />
+          <ScalarProperty Name="karusel_mehsul_id" ColumnName="karusel_mehsul_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategoriyas">
+      <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Kategoriya">
+        <MappingFragment StoreEntitySet="Kategoriya">
+          <ScalarProperty Name="kategorya_id" ColumnName="kategorya_id" />
+          <ScalarProperty Name="kategorya_adi" ColumnName="kategorya_adi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Servis">
+      <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Servi">
+        <MappingFragment StoreEntitySet="Servis">
+          <ScalarProperty Name="servis_id" ColumnName="servis_id" />
+          <ScalarProperty Name="servis_adi" ColumnName="servis_adi" />
+          <ScalarProperty Name="servis_content" ColumnName="servis_content" />
+          <ScalarProperty Name="servis_icon" ColumnName="servis_icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Slayders">
+      <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Slayder">
+        <MappingFragment StoreEntitySet="Slayder">
+          <ScalarProperty Name="slider_id" ColumnName="slider_id" />
+          <ScalarProperty Name="slider_image" ColumnName="slider_image" />
+          <ScalarProperty Name="slider_mehsul_id" ColumnName="slider_mehsul_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mallars">
+      <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Mallar">
+        <MappingFragment StoreEntitySet="Mallar">
+          <ScalarProperty Name="mal_resmi" ColumnName="mal_resmi" />
+          <ScalarProperty Name="mal_kateqoriyasi" ColumnName="mal_kateqoriyasi" />
+          <ScalarProperty Name="mal_bawliq" ColumnName="mal_bawliq" />
+          <ScalarProperty Name="mal_info" ColumnName="mal_info" />
+          <ScalarProperty Name="mal_web_link" ColumnName="mal_web_link" />
+          <ScalarProperty Name="mal_youtube_link" ColumnName="mal_youtube_link" />
+          <ScalarProperty Name="mal_qiymeti" ColumnName="mal_qiymeti" />
+          <ScalarProperty Name="mal_adi" ColumnName="mal_adi" />
+          <ScalarProperty Name="mal_id" ColumnName="mal_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Galereyas">
+      <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Galereya">
+        <MappingFragment StoreEntitySet="Galereya">
+          <ScalarProperty Name="galery_image" ColumnName="galery_image" />
+          <ScalarProperty Name="galery_text" ColumnName="galery_text" />
+          <ScalarProperty Name="galery_header" ColumnName="galery_header" />
+          <ScalarProperty Name="galery_id" ColumnName="galery_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zakazims">
+      <EntityTypeMapping TypeName="DB_A3E145_SaglamligimModel.Zakazim">
+        <MappingFragment StoreEntitySet="Zakazim">
+          <ScalarProperty Name="zakaz_vaxti" ColumnName="zakaz_vaxti" />
+          <ScalarProperty Name="zakazim_mehsul" ColumnName="zakazim_mehsul" />
+          <ScalarProperty Name="zakazim_telefon" ColumnName="zakazim_telefon" />
+          <ScalarProperty Name="zakazim_adi_soyad" ColumnName="zakazim_adi_soyad" />
+          <ScalarProperty Name="zakazim_id" ColumnName="zakazim_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<AzmanAzWebPage.Models.Servi>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Az/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.servis_adi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.servis_content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.servis_icon)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.servis_adi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.servis_content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.servis_icon)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.servis_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.servis_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.servis_id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_A3E145_azmanazwebpageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="About">
+    <Key>
+      <PropertyRef Name="about_id" />
+    </Key>
+    <Property Name="about_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="about_header" Type="nvarchar" MaxLength="80" />
+    <Property Name="about_content" Type="nvarchar(max)" />
+    <Property Name="about_text" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Banner">
+    <Key>
+      <PropertyRef Name="banner_id" />
+    </Key>
+    <Property Name="banner_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="banner_header" Type="nvarchar" MaxLength="500" />
+    <Property Name="banner_content" Type="nvarchar(max)" />
+    <Property Name="banner_back_img" Type="nvarchar(max)" />
+    <Property Name="banner_link" Type="nvarchar(max)" />
+    <Property Name="banner_text" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="BestService">
+    <Key>
+      <PropertyRef Name="bestservice_id" />
+    </Key>
+    <Property Name="bestservice_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bestservice_header" Type="nvarchar" MaxLength="300" />
+    <Property Name="bestservice_content" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="contact_id" />
+    </Key>
+    <Property Name="contact_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="contact_name" Type="nvarchar(max)" />
+    <Property Name="contact_email" Type="nvarchar" MaxLength="200" />
+    <Property Name="contact_message" Type="nvarchar(max)" />
+    <Property Name="contact_surname" Type="nvarchar" MaxLength="70" />
+    <Property Name="contact_phone" Type="nvarchar" MaxLength="60" />
+    <Property Name="contact_web_page" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Gallery">
+    <Key>
+      <PropertyRef Name="gallery_id" />
+    </Key>
+    <Property Name="gallery_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gallery_img" Type="nvarchar(max)" />
+    <Property Name="gallery_content" Type="nvarchar(max)" />
+    <Property Name="gallery_header" Type="nvarchar" MaxLength="300" />
+    <Property Name="gallery_mehsul_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Mallar">
+    <Key>
+      <PropertyRef Name="mehsul_id" />
+    </Key>
+    <Property Name="mehsul_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mehsul_ad" Type="nvarchar" MaxLength="200" />
+    <Property Name="mehsul_link" Type="nvarchar" MaxLength="1000" />
+    <Property Name="mehsul_qiymet" Type="nvarchar" MaxLength="60" />
+    <Property Name="mehsul_detail" Type="nvarchar(max)" />
+    <Property Name="mehsul_photo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Offer">
+    <Key>
+      <PropertyRef Name="offer_id" />
+    </Key>
+    <Property Name="offer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="offer_header" Type="nvarchar" MaxLength="200" />
+    <Property Name="offer_content" Type="nvarchar(max)" />
+    <Property Name="offer_icon" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="service_id" />
+    </Key>
+    <Property Name="service_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="service_header" Type="nvarchar" MaxLength="500" />
+    <Property Name="service_content" Type="nvarchar(max)" />
+    <Property Name="sevice_icon" Type="nvarchar" MaxLength="50" />
+    <Property Name="service_img" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Statistika">
+    <Key>
+      <PropertyRef Name="statistika_id" />
+    </Key>
+    <Property Name="statistika_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="statistika_icon" Type="nvarchar(max)" />
+    <Property Name="statistika_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="statistika_count" Type="int" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="user_name" Type="nvarchar" MaxLength="200" />
+    <Property Name="user_rol" Type="nvarchar" MaxLength="60" />
+    <Property Name="user_comment" Type="nvarchar(max)" />
+    <Property Name="user_photo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Zakaz">
+    <Key>
+      <PropertyRef Name="sifaris_id" />
+    </Key>
+    <Property Name="sifaris_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sifaris_ad_soyad" Type="nvarchar" MaxLength="500" />
+    <Property Name="sifaris_telefon" Type="nvarchar" MaxLength="100" />
+    <Property Name="mehsul_sifaris" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <Association Name="FK_Gallery_Mehsul">
+    <End Role="Mallar" Type="Self.Mallar" Multiplicity="0..1" />
+    <End Role="Gallery" Type="Self.Gallery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mallar">
+        <PropertyRef Name="mehsul_id" />
+      </Principal>
+      <Dependent Role="Gallery">
+        <PropertyRef Name="gallery_mehsul_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB_A3E145_azmanazwebpageModelStoreContainer">
+    <EntitySet Name="About" EntityType="Self.About" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Banner" EntityType="Self.Banner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BestService" EntityType="Self.BestService" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gallery" EntityType="Self.Gallery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mallar" EntityType="Self.Mallar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Offer" EntityType="Self.Offer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Statistika" EntityType="Self.Statistika" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zakaz" EntityType="Self.Zakaz" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Gallery_Mehsul" Association="Self.FK_Gallery_Mehsul">
+      <End Role="Mallar" EntitySet="Mallar" />
+      <End Role="Gallery" EntitySet="Gallery" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
